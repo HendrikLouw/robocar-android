@@ -3,21 +3,30 @@ package com.hendriklouw.robocar.remote.models;
 
 import android.util.Log;
 
+import com.hendriklouw.robocar.remote.api.RemoteControlAPI;
+import com.hendriklouw.robocar.remote.api.RemoteControlApiResult;
+import com.hendriklouw.robocar.remote.modules.DaggerRemoteControlComponent;
+import com.hendriklouw.robocar.remote.modules.RemoteControlApiModule;
+import com.hendriklouw.robocar.remote.modules.RemoteControlComponent;
+
+import javax.inject.Inject;
+
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
-import retrofit2.Retrofit;
-import retrofit2.converter.gson.GsonConverterFactory;
 
 public class RemoteControl {
-    public static final String BASE_URL = " http://192.168.2.25:3000/api/robots/";
+    private final RemoteControlComponent mRemoteControlComponent;
+    @Inject
+    RemoteControlAPI remoteControlAPI;
 
-    Retrofit retrofit = new Retrofit.Builder()
-            .baseUrl(BASE_URL)
-            .addConverterFactory(GsonConverterFactory.create())
-            .build();
-
-    RemoteControlAPI remoteControlAPI = retrofit.create(RemoteControlAPI.class);
+    public RemoteControl() {
+        mRemoteControlComponent = DaggerRemoteControlComponent.builder()
+                // list of modules that are part of this component need to be created here too
+                .remoteControlApiModule(new RemoteControlApiModule())
+                .build();
+        mRemoteControlComponent.inject(this);
+    }
 
     public void forward() {
         remoteControlAPI

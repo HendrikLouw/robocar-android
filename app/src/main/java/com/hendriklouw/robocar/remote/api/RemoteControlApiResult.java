@@ -1,7 +1,7 @@
-package com.hendriklouw.robocar.remote.models;
+package com.hendriklouw.robocar.remote.api;
 
 public class RemoteControlApiResult {
-    String result;
+    public String result;
 
     RemoteControlApiResult(String result) {
         this.result = result;
