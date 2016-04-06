@@ -1,4 +1,4 @@
-package com.hendriklouw.robocar.remote.modules;
+package com.hendriklouw.robocar.modules;
 
 import com.hendriklouw.robocar.remote.api.RemoteControlAPI;
 
@@ -10,7 +10,7 @@ import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
 
 @Module
-public class RemoteControlApiModule {
+public class ApiModule {
     public static final String BASE_URL = " http://192.168.2.25:3000/api/robots/";
 
     @Provides

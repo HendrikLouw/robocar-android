@@ -1,4 +1,8 @@
 <resources>
     <string name="app_name">Robocar</string>
     <string name="forward_btn_text">Forward</string>
+
+    <string name="title_activity_touch_remote">TouchRemoteActivity</string>
+    <string name="dummy_button">Dummy Button</string>
+    <string name="dummy_content">DUMMY\nCONTENT</string>
 </resources>

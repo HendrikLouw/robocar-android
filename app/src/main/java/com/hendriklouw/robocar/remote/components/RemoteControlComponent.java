@@ -1,5 +1,6 @@
-package com.hendriklouw.robocar.remote.modules;
+package com.hendriklouw.robocar.remote.components;
 
+import com.hendriklouw.robocar.modules.ApiModule;
 import com.hendriklouw.robocar.remote.models.RemoteControl;
 
 import javax.inject.Singleton;
@@ -7,7 +8,7 @@ import javax.inject.Singleton;
 import dagger.Component;
 
 @Singleton
-@Component(modules = {RemoteControlApiModule.class})
+@Component(modules = {ApiModule.class})
 public interface RemoteControlComponent {
     void inject(RemoteControl remoteControl);
 }

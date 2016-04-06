@@ -11,7 +11,7 @@ import butterknife.Bind;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
 
-public class RemoteActivity extends AppCompatActivity {
+public class BasicRemoteActivity extends AppCompatActivity {
     @Bind(R.id.forward_button)
     Button forwardButton;
 
@@ -24,7 +24,7 @@ public class RemoteActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_remote);
+        setContentView(R.layout.activity_basic_remote);
         ButterKnife.bind(this);
     }
 }

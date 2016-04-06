@@ -1,13 +1,12 @@
 package com.hendriklouw.robocar.remote.models;
 
-
 import android.util.Log;
 
 import com.hendriklouw.robocar.remote.api.RemoteControlAPI;
 import com.hendriklouw.robocar.remote.api.RemoteControlApiResult;
-import com.hendriklouw.robocar.remote.modules.DaggerRemoteControlComponent;
-import com.hendriklouw.robocar.remote.modules.RemoteControlApiModule;
-import com.hendriklouw.robocar.remote.modules.RemoteControlComponent;
+import com.hendriklouw.robocar.remote.components.DaggerRemoteControlComponent;
+import com.hendriklouw.robocar.modules.ApiModule;
+import com.hendriklouw.robocar.remote.components.RemoteControlComponent;
 
 import javax.inject.Inject;
 
@@ -22,8 +21,7 @@ public class RemoteControl {
 
     public RemoteControl() {
         mRemoteControlComponent = DaggerRemoteControlComponent.builder()
-                // list of modules that are part of this component need to be created here too
-                .remoteControlApiModule(new RemoteControlApiModule())
+                .apiModule(new ApiModule())
                 .build();
         mRemoteControlComponent.inject(this);
     }
